@@ -2,6 +2,7 @@ package com.bigboss.service;
 
 import com.bigboss.entity.Customer;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  * <p>
@@ -11,6 +12,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author bigboss
  * @since 2021-08-04
  */
-public interface ICustomerService extends IService<Customer> {
+public interface ICustomerService extends IService<Customer>, UserDetailsService {
 
 }
