@@ -19,6 +19,10 @@ public class WxService {
         this.wxConfig = wxConfig;
     }
 
+    /**
+     * 小程序登录凭证校验
+     * @param code 从小程序端传来的code
+     */
     public JSONObject login(String code) {
         return restTemplate.getForObject(WX_LOGIN, JSONObject.class, this.wxConfig.getAppId(),
                this.wxConfig.getSecret(), code);
