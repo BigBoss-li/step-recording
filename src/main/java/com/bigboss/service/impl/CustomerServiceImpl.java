@@ -5,7 +5,7 @@ import com.bigboss.entity.Customer;
 import com.bigboss.mapper.CustomerMapper;
 import com.bigboss.service.ICustomerService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.bigboss.utils.User;
+import com.bigboss.security.utils.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;

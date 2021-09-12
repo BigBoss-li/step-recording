@@ -1,4 +1,4 @@
-package com.bigboss.config;
+package com.bigboss.security.config;
 
 import com.bigboss.handler.LoginFailureHandler;
 import com.bigboss.handler.LoginSuccessHandler;
@@ -13,7 +13,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;

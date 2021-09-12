@@ -1,4 +1,4 @@
-package com.bigboss.utils;
+package com.bigboss.security.utils;
 
 import lombok.Getter;
 import lombok.Setter;
