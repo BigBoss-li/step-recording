@@ -1,7 +1,7 @@
 package com.bigboss.service;
 
 import com.alibaba.fastjson.JSONObject;
-import com.bigboss.config.WxConfig;
+import com.bigboss.wx.WXConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.client.RestTemplate;
 
@@ -10,12 +10,12 @@ public class WxService {
     private static final String WX_LOGIN = "https://api.weixin.qq.com/sns/jscode2session?appid={1}&secret={2}" +
             "&js_code={3}&grant_type=authorization_code";
 
-    private final WxConfig wxConfig;
+    private final WXConfig wxConfig;
 
     @Autowired
     private RestTemplate restTemplate;
 
-    public WxService(WxConfig wxConfig) {
+    public WxService(WXConfig wxConfig) {
         this.wxConfig = wxConfig;
     }
 
