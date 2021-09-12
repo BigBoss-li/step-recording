@@ -1,4 +1,4 @@
-package com.bigboss.config;
+package com.bigboss.convert;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -6,9 +6,9 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import java.util.ArrayList;
 import java.util.List;
 
-public class MessageConverter extends MappingJackson2HttpMessageConverter {
+public class JacksonMessageConverter extends MappingJackson2HttpMessageConverter {
 
-    public MessageConverter() {
+    public JacksonMessageConverter() {
         List<MediaType> mediaTypes = new ArrayList<>();
         mediaTypes.add(MediaType.TEXT_PLAIN);
         setSupportedMediaTypes(mediaTypes);

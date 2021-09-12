@@ -1,5 +1,6 @@
 package com.bigboss.config;
 
+import com.bigboss.convert.JacksonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.ClientHttpRequestFactory;
@@ -7,12 +8,12 @@ import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-public class RestTemplateConfig {
+public class RestTemplateConfiguration {
 
     @Bean
     public RestTemplate restTemplate(ClientHttpRequestFactory factory) {
         RestTemplate restTemplate = new RestTemplate(factory);
-        restTemplate.getMessageConverters().add(new MessageConverter());
+        restTemplate.getMessageConverters().add(new JacksonMessageConverter());
         return restTemplate;
     }
 
