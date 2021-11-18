@@ -37,7 +37,7 @@ public class WebClientUtils {
      *
      * @param url         url
      * @param queryParams url参数
-     * @param params      JSON参数
+     * @param bodyParams  body参数
      * @param clazz       转换对象
      * @param httpMethod  请求方法
      * @param contentType 内容类型
@@ -45,7 +45,7 @@ public class WebClientUtils {
      * @param <T>         返回对象类型
      * @return 返回对象
      */
-    public static <T> T doHttpRequest(String url, Map<String, String> queryParams, Object params, Class<T> clazz, HttpMethod httpMethod, String contentType,
+    public static <T> T doHttpRequest(String url, Map<String, String> queryParams, Object bodyParams, Class<T> clazz, HttpMethod httpMethod, String contentType,
                                       HttpHeaders headers) {
         HttpClient httpClient = HttpClient.create().option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 3000)
                 .doOnConnected(conn -> conn.addHandlerLast(new ReadTimeoutHandler(3))
@@ -72,7 +72,11 @@ public class WebClientUtils {
             requestBodyUriSpec.headers(httpHeaders -> httpHeaders = headers);
         }
         requestBodyUriSpec.uri(uriBuilder.build());
-        Mono<T> result = requestBodyUriSpec.bodyValue(params).retrieve().bodyToMono(clazz);
+        WebClient.RequestHeadersSpec<?> requestHeadersSpec = requestBodyUriSpec;
+        if (null != bodyParams) {
+            requestBodyUriSpec.bodyValue(bodyParams);
+        }
+        Mono<T> result = requestHeadersSpec.retrieve().bodyToMono(clazz);
         return result.block();
     }
 }
