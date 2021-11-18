@@ -1,18 +1,19 @@
 package com.bigboss.controller;
 
 
+import com.bigboss.controller.req.CustomerReq;
 import com.bigboss.entity.Customer;
 import com.bigboss.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author bigboss
@@ -25,9 +26,9 @@ public class CustomerController {
     @Autowired
     private ICustomerService iCustomerService;
 
-    @RequestMapping(value = "/query")
-    public List<Customer> list() {
-        return  iCustomerService.list();
+    @PostMapping(value = "/query")
+    public List<Customer> list(CustomerReq req) {
+        return iCustomerService.list();
     }
 }
 
