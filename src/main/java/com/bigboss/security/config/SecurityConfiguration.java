@@ -1,7 +1,7 @@
 package com.bigboss.security.config;
 
-import com.bigboss.handler.LoginFailureHandler;
-import com.bigboss.handler.LoginSuccessHandler;
+import com.bigboss.security.handler.LoginFailureHandler;
+import com.bigboss.security.handler.LoginSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

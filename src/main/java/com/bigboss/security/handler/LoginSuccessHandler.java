@@ -1,4 +1,4 @@
-package com.bigboss.handler;
+package com.bigboss.security.handler;
 
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.http.MediaType;
